@@ -1,0 +1,44 @@
+@startuml
+left to right direction
+
+' Definición de actores
+actor "Administrador" as Admin
+actor "Socio" as Socio
+
+' Paquete que engloba todos los casos de uso del sistema
+package "Sistema de Gestión de Excursiones" #DDDDDD {
+    usecase "Añadir Excursión" as AddExcursion
+    usecase "Mostrar Excursiones" as ShowExcursions
+    usecase "Añadir Socio Estándar" as AddStandardMember
+    usecase "Añadir Socio Federado" as AddFederatedMember
+    usecase "Añadir Socio Infantil" as AddChildMember
+    usecase "Modificar Seguro Socio Estándar" as ModifyInsurance
+    usecase "Eliminar Socio" as DeleteMember
+    usecase "Mostrar Socios" as ShowMembers
+    usecase "Mostrar Factura Mensual" as ShowInvoice
+    usecase "Añadir Inscripción" as AddSubscription
+    usecase "Eliminar Inscripción" as DeleteSubscription
+    usecase "Mostrar Inscripciones" as ShowSubscriptions
+}
+
+' Relación del Administrador con los casos de uso de gestión
+Admin --> AddExcursion
+Admin --> ShowExcursions
+Admin --> AddStandardMember
+Admin --> AddFederatedMember
+Admin --> AddChildMember
+Admin --> ModifyInsurance
+Admin --> DeleteMember
+Admin --> ShowMembers
+Admin --> ShowInvoice
+Admin --> AddSubscription
+Admin --> DeleteSubscription
+Admin --> ShowSubscriptions
+
+' Relación del Socio con los casos de uso que puede visualizar
+Socio --> ShowExcursions
+Socio --> ShowMembers
+Socio --> ShowInvoice
+Socio --> ShowSubscriptions
+
+@enduml
